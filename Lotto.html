@@ -1,0 +1,83 @@
+<!--Lotto.html-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한국 로또 번호 생성기</title>
+  <script defer src="Lotto.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    .lotto-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      min-height: 50px;
+    }
+    .fixed-box {
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 50px;
+    }
+    .lotto-number {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+    .result { margin-top: 20px; font-size: 20px; font-weight: bold; min-height: 50px; }
+    table { width: 300px; margin: 20px auto; border-collapse: collapse; }
+    th, td { border: 1px solid black; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+<h1>로또 번호 생성기</h1>
+
+<div>
+  <label>번호 입력: </label>
+  <input type="number" id="num1" min="1" max="45">
+  <input type="number" id="num2" min="1" max="45">
+  <input type="number" id="num3" min="1" max="45">
+  <input type="number" id="num4" min="1" max="45">
+  <input type="number" id="num5" min="1" max="45">
+  <input type="number" id="num6" min="1" max="45">
+</div>
+
+<button onclick="generateRandomLotto()">랜덤</button>
+<button onclick="compareLotto()">확인</button>
+<button onclick="autoGenerateLotto()">자동</button>
+
+<h2>당첨 번호</h2>
+<div class="lotto-container">
+  <div class="fixed-box" id="lotto-container"></div>
+</div>
+
+<h2>내 번호</h2>
+<div class="lotto-container">
+  <div class="fixed-box" id="user-container"></div>
+</div>
+
+<div class="result" id="total-result-container"></div>
+<h2>통계</h2>
+<p id="total-attempts">총 시행 횟수: 0</p>
+<table>
+  <tr><th>등수</th><th>당첨 횟수</th></tr>
+  <tr><td>1등</td><td id="rank-1">0</td></tr>
+  <tr><td>2등</td><td id="rank-2">0</td></tr>
+  <tr><td>3등</td><td id="rank-3">0</td></tr>
+  <tr><td>4등</td><td id="rank-4">0</td></tr>
+  <tr><td>5등</td><td id="rank-5">0</td></tr>
+  <tr><td>꽝</td><td id="rank-0">0</td></tr>
+</table>
+</body>
+</html>
